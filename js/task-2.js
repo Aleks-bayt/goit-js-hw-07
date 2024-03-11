@@ -28,25 +28,34 @@ const images = [
     },
   ];
   const gallery = document.querySelector('.gallery');
+function createMarkup(arr) {
+  return arr
+  .map(({ url, alt }) => `
+  <li class = "gallery-item">
+    <img  src = ${url} alt = ${alt} class = "gallery-imag" width = 360 height = 300 />
+  </li>`)
+  .join("")
+}
+  // images.forEach(image => {
+  //   const galleryItem = document.createElement('li');
+  //   galleryItem.classList.add('gallery-item');
 
-  images.forEach(image => {
-    const galleryItem = document.createElement('li');
-    galleryItem.classList.add('gallery-item');
+  //   const img = document.createElement('img');
+  //   img.src = image.url;
+  //   img.alt = image.alt;
+  //   img.width = 360;
+  //   img.height = 300;
 
-    const img = document.createElement('img');
-    img.src = image.url;
-    img.alt = image.alt;
-    img.width = 360;
-    img.height = 300;
-
-    galleryItem.appendChild(img);
-    gallery.appendChild(galleryItem);
-  });
+  //   galleryItem.appendChild(img);
+  //   gallery.appendChild(galleryItem);
+  // });
 
   gallery.style.display = 'flex';
   gallery.style.flexWrap = 'wrap';
   gallery.style.gap = '24px';
-  gallery.style.listStile = 'none';
+  gallery.style.listStyle = 'none';
+
+  gallery.insertAdjacentHTML("beforeend", createMarkup(images));
   
  
   

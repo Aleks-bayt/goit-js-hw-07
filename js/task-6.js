@@ -10,6 +10,7 @@ function getRandomHexColor() {
   };
 
   function createBoxes(amount) {
+    destroyBoxes();
     const boxes = [];
     let boxSize = 30;
   
